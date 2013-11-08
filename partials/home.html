@@ -1,0 +1,31 @@
+<section ng-controller="WeatherCtrl">
+	<div class="loader" ng-show="loader"></div>
+	<section class="panel">
+		<form ng-submit="search()">
+			<input type="text" name="Ville" ng-model="city">
+			<input type="submit" value="oK">
+		</form>
+<!-- 		<div class="row-title">
+			{{weather.city.name}} / {{weather.city.country}}
+		</div>
+		<div class="row" ng-class="{rowactive: $index==0}" ng-repeat="t in weather.list">
+			<span>{{t.dt*1000 | date:'EEE'}}</span>		
+			<span>{{t.dt*1000 | date:'dd/MM'}}</span>		
+			<span>{{Math.round(t.temp.day)}} °C</span>
+			<span>{{t.weather.0.description}}</span>
+		</div> -->
+		<div class="row" ng-repeat="t in weather.list">
+			<nav class="nav">
+				<div class="des">
+					<img src="css/test.png" alt=""><!-- {{t.weather.0.description}} -->
+				</div>		
+				<div class="day">
+					{{Math.round(t.temp.day)}}°C	{{Math.round(t.temp.night)}}°C
+				</div>
+			</nav>
+			<div class="dayx">
+					{{t.dt*1000 | date:'EEE'}}  {{t.dt*1000 | date:'dd/MM'}}
+			</div>
+		</div>
+	</section>
+</section>
